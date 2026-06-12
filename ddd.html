@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تیم مارت - Team Mart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* لێرەدا ڕەنگەکانی پاشبنەمامان گۆڕی بۆ نیلی و پرتەقالی */
+            --primary-bg: #1e3a8a;    /* نیلی کراوە */
+            --secondary-bg: #ea580c;  /* پرتەقالی مۆدێرن */
+            --tertiary-bg: #0f172a;   /* نیلی تاریک بۆ باڵانسی ڕەنگەکان */
+            
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --accent: #00d2ff;
+            --accent-glow: #3a7bd5;
+            --offer-color: #ff9a9e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(45deg, var(--primary-bg), var(--secondary-bg), var(--tertiary-bg));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Profile & Header */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid var(--accent);
+            margin: 0 auto 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #d1d8e0;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* 24/7 Clock Badge */
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-badge i {
+            font-size: 1.2rem;
+            color: #f1c40f;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.5); }
+            70% { box-shadow: 0 0 0 15px rgba(241, 196, 15, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+        }
+
+        /* Social Icons Row */
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--accent);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: transparent;
+        }
+
+        /* Links Sections */
+        .section-title {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 25px 0 10px 0;
+            padding-right: 10px;
+            border-right: 4px solid var(--accent);
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .link-btn i.main-icon {
+            font-size: 1.4rem;
+            width: 30px;
+            text-align: center;
+            margin-left: 15px;
+        }
+
+        .link-btn .text {
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .link-btn i.arrow {
+            font-size: 1rem;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .link-btn:hover i.arrow {
+            opacity: 1;
+            transform: translateX(-5px);
+        }
+
+        /* Offers Section */
+        .offers-container {
+            background: linear-gradient(135deg, rgba(255,154,158,0.2) 0%, rgba(254,204,236,0.2) 100%);
+            border: 1px solid rgba(255, 154, 158, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offers-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotateGlow 10s linear infinite;
+        }
+
+        .offer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-item:last-child {
+            border-bottom: none;
+        }
+
+        .offer-details {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .offer-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+
+        .offer-name {
+            font-weight: 600;
+        }
+
+        .offer-price {
+            background: #ff4757;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+
+        /* Specific Highlight Colors */
+        .job-btn {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            border: none;
+        }
+        
+        .whatsapp-btn i.main-icon { color: #25D366; }
+        .location-btn i.main-icon { color: #ff6b81; }
+        .app-btn i.main-icon { color: var(--accent); }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-img">
+                <img src="https://scontent.febl5-1.fna.fbcdn.net/v/t39.30808-6/327450236_1942116499469719_801308185209015741_n.jpg?stp=dst-jpg_tt6&cstp=mx1880x1880&ctp=s1880x1880&_nc_cat=1&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Wc8G0W2NMlkQ7kNvwGlDSYi&_nc_oc=AdrCXsPhD1pYIdhc15CXbvToRlD9bSb2g_gwbNC150YvUhaz3gfEJpBc4wUZ4P77cko&_nc_zt=23&_nc_ht=scontent.febl5-1.fna&_nc_gid=Hs1vDxfsp3O6wkUcOXU67A&_nc_ss=7b289&oh=00_Af9dSGvV0rEA5Kngh0zuB96mFMvkdzfzwgvHo2xrSgHPlA&oe=6A325AFF" alt="تیم مارت">
+            </div>
+            <h1>تیم مارت - Team Mart</h1>
+            <p class="subtitle">تیم مارت گەورەترین زنجیرە مارکێت لە هەموو عێراق</p>
+        </div>
+
+        <!-- 24/7 Clock Indicator -->
+        <div class="service-badge">
+            <i class="fa-regular fa-clock"></i>
+            <span>٢٤ کاتژمێر لە خزمەت هاوڵاتیان - 24/7 Service</span>
+        </div>
+
+        <!-- Social Media Icons Row -->
+        <div class="social-row">
+            <a href="https://www.facebook.com/share/1BEmC9G1Jq/" target="_blank" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/teammart.erbil?igsh=MXByNzlrOWo1Yngyeg==" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@teammart.iraq?_r=1&_t=ZS-96rE4hZtuo1" target="_blank" class="social-icon" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.snapchat.com/@teammart.iraq?sender_web_id=e63e6236-69d4-4b38-a301-d99e8db1db51&device_type=desktop&is_copy_url=true" target="_blank" class="social-icon" aria-label="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
+            <a href="https://invite.viber.com/?g2=AQAfNsDQCMyJOErE%2F%2FhkOMYc7yxmzHr%2BFkpdV0A%2FPVzK6CdCxCG9y0KAMIB5xxK5&lang=en" target="_blank" class="social-icon" aria-label="Viber"><i class="fa-brands fa-viber"></i></a>
+        </div>
+
+        <!-- App Downloads -->
+        <div class="section-title">ئەپڵیکەیشنەکانمان (Our Apps)</div>
+        <a href="https://play.google.com/store/apps/details?id=com.bupos" target="_blank" class="link-btn app-btn">
+            <i class="fa-brands fa-google-play main-icon"></i>
+            <span class="text">داگرتن بۆ Android</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+        <a href="https://apps.apple.com/jo/app/youtube/id544007664?l=ar" target="_blank" class="link-btn app-btn">
+            <i class="fa-brands fa-apple main-icon"></i>
+            <span class="text">داگرتن بۆ iPhone</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <!-- Animated Offers Section -->
+        <div class="section-title" style="border-color: #ff4757;">گەرمترین ئۆفەرەکان (Discount Offers)</div>
+        <div class="offers-container">
+            
+            <div class="offer-item">
+                <div class="offer-details">
+                    <img src="https://m.media-amazon.com/images/I/61JjUo8xdoL._AC_SY879_.jpg" alt="برنجی مەحموود" class="offer-img">
+                    <span class="offer-name">برنجی مەحموود 12 کیلۆ</span>
+                </div>
+                <span class="offer-price">10 هەزار</span>
+            </div>
+
+            <div class="offer-item">
+                <div class="offer-details">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdxp1WdnUp3R0o3q8fao33aYUWrjkGCXi5gSYli5LN29ZZ0nwnzRXFDX8W&s=10" alt="زەیتی زەیتوون" class="offer-img">
+                    <span class="offer-name">زەیتی زەیتوون 2 لیتر</span>
+                </div>
+                <span class="offer-price">2 هەزار</span>
+            </div>
+
+            <div class="offer-item">
+                <div class="offer-details">
+                    <img src="https://www.cihantea.com//view/asset/cache/img/-cihantea-packet-eg-std10-370x245.jpg" alt="چای جیهان" class="offer-img">
+                    <span class="offer-name">چای جیهان</span>
+                </div>
+                <span class="offer-price">5 هەزار</span>
+            </div>
+
+        </div>
+
+        <!-- Location & Contact -->
+        <div class="section-title">پەیوەندی و ناونیشان (Contact & Location)</div>
+        
+        <a href="https://team-mart.com/ku/branches/" target="_blank" class="link-btn location-btn">
+            <i class="fa-solid fa-map-location-dot main-icon"></i>
+            <span class="text">سەرجەم لقەکانمان لەهەموو شار و شارۆجکەکان</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="tel:07501727667" class="link-btn">
+            <i class="fa-solid fa-phone-volume main-icon" style="color: #00d2ff;"></i>
+            <span class="text">ژمارە مۆبایلی کارگێری: 07501727667</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://wa.me/9647765558065" target="_blank" class="link-btn whatsapp-btn">
+            <i class="fa-brands fa-whatsapp main-icon"></i>
+            <span class="text">Whats app لقی سلێمانی: 07765558065</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <a href="https://wa.me/9647502654000" target="_blank" class="link-btn whatsapp-btn">
+            <i class="fa-brands fa-whatsapp main-icon"></i>
+            <span class="text">Whats app لقی هەولێر: 07502654000</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+        <!-- Jobs -->
+        <div class="section-title" style="border-color: #38ef7d;">هەلی کار (Careers)</div>
+        <a href="https://teammart.co/cvteammart/" target="_blank" class="link-btn job-btn">
+            <i class="fa-solid fa-briefcase main-icon" style="color: white;"></i>
+            <span class="text">بۆ هەلی کار ئەم لینکە بکەنەوە</span>
+            <i class="fa-solid fa-chevron-left arrow"></i>
+        </a>
+
+    </div>
+
+</body>
+</html>
